@@ -1,6 +1,7 @@
 import 'package:cosmetics_law/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:cosmetics_law/widgets/custom_material_color.dart';
 
 void main() {
   runApp(
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        // primarySwatch: Colors.amber,
+        primarySwatch: CustomMaterialColor(228, 147, 161).mdColor,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
