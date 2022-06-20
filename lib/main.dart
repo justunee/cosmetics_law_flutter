@@ -33,7 +33,9 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         // primarySwatch: Colors.amber,
+        scaffoldBackgroundColor: CustomMaterialColor(228, 147, 161).mdColor,
         primarySwatch: CustomMaterialColor(228, 147, 161).mdColor,
+        backgroundColor: CustomMaterialColor(228, 147, 161).mdColor,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
