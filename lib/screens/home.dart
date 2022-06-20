@@ -1,3 +1,4 @@
+import 'package:cosmetics_law/screens/question.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/widgets.dart';
@@ -75,6 +76,16 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            ElevatedButton(
+              child: Text('Go to Question'),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const QuestionPage(title: 'test')),
+                );
+              },
             ),
           ],
         ),
