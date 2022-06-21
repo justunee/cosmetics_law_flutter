@@ -80,11 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ElevatedButton(
               child: Text('Go to Question'),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const QuestionPage(title: 'test')),
-                );
+                Navigator.pushNamed(context, "/question");
               },
             ),
           ],

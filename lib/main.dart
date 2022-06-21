@@ -38,6 +38,10 @@ class MyApp extends StatelessWidget {
         backgroundColor: CustomMaterialColor(228, 147, 161).mdColor,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: <String, WidgetBuilder>{
+        '/question': (BuildContext context) =>
+            const QuestionPage(title: 'test'),
+      },
     );
   }
 }

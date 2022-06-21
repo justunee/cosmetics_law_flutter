@@ -35,7 +35,7 @@ class BaseBottomBar extends HookConsumerWidget {
               onTap: (int index) {
                 if (index == 0) {
                   // navigate home
-                  Navigator.pushReplacementNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/');
                 } else {
                   onClickAction();
                 }
