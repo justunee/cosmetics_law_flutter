@@ -43,6 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    var controller = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -77,8 +79,20 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            Textfield(
+              controller: controller,
+            ),
             ElevatedButton(
-              child: Text('Go to Question'),
+                onPressed: () => showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        content: Text(controller.text),
+                      );
+                    }),
+                child: const Text('Submit text')),
+            ElevatedButton(
+              child: const Text('Go to Question'),
               onPressed: () {
                 Navigator.pushNamed(context, "/question");
               },
