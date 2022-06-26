@@ -1,6 +1,5 @@
 import 'package:cosmetics_law/screens/question.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/widgets.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -100,11 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
       bottomNavigationBar: QuestionareBottomBar(
         onClickAction: () {
           print('next');
