@@ -90,6 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     }),
                 child: const Text('Submit text')),
+            const TabsBar(),
             ElevatedButton(
               child: const Text('Go to Question'),
               onPressed: () {
