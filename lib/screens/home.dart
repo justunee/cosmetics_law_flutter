@@ -90,7 +90,42 @@ class _MyHomePageState extends State<MyHomePage> {
                       );
                     }),
                 child: const Text('Submit text')),
-            const TabsBar(),
+            const TabsBar(
+              tabs: [
+                Tab(
+                  child: SizedBox(
+                    width: 100,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text("APPS"),
+                    ),
+                  ),
+                ),
+                Tab(
+                  child: SizedBox(
+                    width: 100,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text("MOVIES"),
+                    ),
+                  ),
+                ),
+                Tab(
+                  child: SizedBox(
+                    width: 100,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Text("GAMES"),
+                    ),
+                  ),
+                ),
+              ],
+              tabChildrens: [
+                Icon(Icons.directions_car),
+                Icon(Icons.directions_transit),
+                Icon(Icons.directions_bike),
+              ],
+            ),
             ElevatedButton(
               child: const Text('Go to Question'),
               onPressed: () {
