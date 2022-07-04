@@ -39,25 +39,20 @@ class _CheckboxBadgeState extends State<CheckboxBadge> {
         padding: const EdgeInsets.all(20),
         child: Column(
             children: badgeChecklists.map((badge) {
-          return Card(
-            child: Container(
-              height: 24,
-              child: CheckboxListTile(
-                dense: true,
-                contentPadding: EdgeInsets.zero,
-                value: badge["isChecked"],
-                title: Text(badge["question"]),
-                checkboxShape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                ),
-                controlAffinity: ListTileControlAffinity.leading,
-                onChanged: (newValue) {
-                  setState(() {
-                    badge["isChecked"] = newValue;
-                  });
-                },
-              ),
+          return CheckboxListTile(
+            dense: true,
+            contentPadding: EdgeInsets.zero,
+            value: badge["isChecked"],
+            title: Text(badge["question"]),
+            checkboxShape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
             ),
+            controlAffinity: ListTileControlAffinity.leading,
+            onChanged: (newValue) {
+              setState(() {
+                badge["isChecked"] = newValue;
+              });
+            },
           );
         }).toList()),
       ),
@@ -103,22 +98,19 @@ class _CheckboxThaiBadgeState extends State<CheckboxThaiBadge> {
         padding: const EdgeInsets.all(20),
         child: Column(
             children: thaiBadge.map((badge) {
-          return Container(
-            height: 24,
-            child: CheckboxListTile(
-              dense: true,
-              value: badge["isChecked"],
-              title: Text(badge["question"]),
-              checkboxShape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(5.0)),
-              ),
-              controlAffinity: ListTileControlAffinity.leading,
-              onChanged: (newValue) {
-                setState(() {
-                  badge["isChecked"] = newValue;
-                });
-              },
+          return CheckboxListTile(
+            dense: true,
+            value: badge["isChecked"],
+            title: Text(badge["question"]),
+            checkboxShape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
             ),
+            controlAffinity: ListTileControlAffinity.leading,
+            onChanged: (newValue) {
+              setState(() {
+                badge["isChecked"] = newValue;
+              });
+            },
           );
         }).toList()),
       ),

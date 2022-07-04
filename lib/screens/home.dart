@@ -1,4 +1,4 @@
-import 'package:cosmetics_law/screens/question.dart';
+import 'package:cosmetics_law/screens/question_lists.dart';
 import 'package:flutter/material.dart';
 import '../widgets/widgets.dart';
 import '../providers/providers.dart';
@@ -150,29 +150,49 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                ElevatedButton(
-                  child: const Text('Go to Question'),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "/question");
-                  },
-                ),
+
                 SizedBox(
                     height: 200,
                     child: StepperWidget(
                       currentStepProvider: stepProvider,
                       stepChilds: steps,
                     )),
+
+                Text(
+                  '$_counter',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                Textfield(
+                  controller: controller,
+                ),
+                ElevatedButton(
+                    onPressed: () => showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Text(controller.text),
+                          );
+                        }),
+                    child: const Text('Submit text')),
+                ElevatedButton(
+                  child: const Text('Go to Question'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/question_lists");
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text('Go to TrueFalse_Question'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/truefalse_question");
+                  },
+                ),
+
+                // This trailing comma makes auto-formatting nicer for build methods.
               ],
             ),
           ),
         );
       }),
-      // This trailing comma makes auto-formatting nicer for build methods.
-      bottomNavigationBar: QuestionareBottomBar(
-        onClickAction: () {
-          print('next');
-        },
-      ),
     );
   }
 }

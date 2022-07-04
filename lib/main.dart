@@ -1,4 +1,5 @@
 import 'package:cosmetics_law/screens/screens.dart';
+import 'package:cosmetics_law/screens/true_false_question.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:cosmetics_law/widgets/custom_material_color.dart';
@@ -39,8 +40,10 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
       routes: <String, WidgetBuilder>{
-        '/question': (BuildContext context) =>
+        '/question_lists': (BuildContext context) =>
             const QuestionPage(title: 'test'),
+        '/truefalse_question': (BuildContext context) =>
+            const TrueFlaseQuestionPage(title: 'truefalse_question')
       },
     );
   }
