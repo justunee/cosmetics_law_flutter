@@ -1,3 +1,4 @@
+import 'package:cosmetics_law/screens/question_with_provider_example.dart';
 import 'package:cosmetics_law/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/question': (BuildContext context) =>
             const QuestionPage(title: 'test'),
+        '/question2': (BuildContext context) => const MyExamplePage(),
       },
     );
   }
