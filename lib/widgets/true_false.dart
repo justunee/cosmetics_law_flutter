@@ -14,7 +14,8 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
   // Generate a list of available hobbies here
   List<Map> thaiBadge = [
     {
-      "question": "first question",
+      "question":
+          "บนฉลากมีข้อความที่เป็นเท็จ/เกินจริง อาจก่อให้เกิดความเข้าใจผิดในสาระสำคัญ แสดงสรรพคุณรักษาโรค สรรพคุณบำรุงกาม สนับสนุนให้มีการกระทำผิดกฎหมาย ทำให้เกิดความแตกแยก หรือเป็นคำที่มีประกาศห้ามใช้ หรือไม่ ?",
       "firstBox": "yes",
       "secondBox": "no",
     },

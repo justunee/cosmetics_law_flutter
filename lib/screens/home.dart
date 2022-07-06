@@ -151,6 +151,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
 
+                ElevatedButton(
+                  child: const Text('Go to Question'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/question2");
+                  },
+                ),
                 SizedBox(
                     height: 200,
                     child: StepperWidget(
