@@ -17,12 +17,9 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
       "question": "first question",
       "firstBox": "yes",
       "secondBox": "no",
-      "isChecked": false
     },
   ];
-  bool isChecked = false;
-  bool isClicked = false;
-  // String title = "";
+  int test = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -48,52 +45,32 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
           Card(
             child: CheckboxListTile(
               dense: true,
-              value: isChecked,
+              value: test == 1,
               title: Text(thaiBadge[0]["firstBox"]),
               checkboxShape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
               controlAffinity: ListTileControlAffinity.leading,
               onChanged: (newValue) {
-                print(thaiBadge[0]["firstBox"]);
-
-                // setState(() {
-                //   if (badge["status"] == "Yes") {
-                //     badge[{"status" == "no", "isChecked" == false}] = false;
-                //     badge[{"status" == "yes", "isChecked" == false}] = newValue;
-                //   } else {
-                //     badge[{"status" == "yes", "isChecked" == false}] = false;
-                //     badge[{"status" == "no", "isChecked" == false}] = newValue;
-                //   }
-
-                //   // badge["isChecked"] = newValue;
-                // });
+                setState(() {
+                  test = 1;
+                });
               },
             ),
           ),
           Card(
             child: CheckboxListTile(
               dense: true,
-              value: isChecked,
+              value: test == 2,
               title: Text(thaiBadge[0]["secondBox"]),
               checkboxShape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
               controlAffinity: ListTileControlAffinity.leading,
               onChanged: (newValue) {
-                print(thaiBadge[0]["secondBox"]);
-
-                // setState(() {
-                //   if (badge["status"] == "Yes") {
-                //     badge[{"status" == "no", "isChecked" == false}] = false;
-                //     badge[{"status" == "yes", "isChecked" == false}] = newValue;
-                //   } else {
-                //     badge[{"status" == "yes", "isChecked" == false}] = false;
-                //     badge[{"status" == "no", "isChecked" == false}] = newValue;
-                //   }
-
-                //   // badge["isChecked"] = newValue;
-                // });
+                setState(() {
+                  test = 2;
+                });
               },
             ),
           )
