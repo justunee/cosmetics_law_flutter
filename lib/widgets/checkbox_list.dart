@@ -9,26 +9,36 @@ class CheckboxBadge extends StatefulWidget {
   _CheckboxBadgeState createState() => _CheckboxBadgeState();
 }
 
+void _onChanged(List value) {
+  print(value);
+}
+
 class _CheckboxBadgeState extends State<CheckboxBadge> {
   // Generate a list of available hobbies here
   List<Map> badgeChecklists = [
-    {"question": "เลขที่รับจดแจ้ง", "isChecked": false},
-    {"question": "ชื่อเครื่องสำอาง หรือ ชื่อยี่ห้อ", "isChecked": false},
-    {"question": "ประเภทเครื่องสำอาง", "isChecked": false},
-    {"question": "ส่วนประกอบ", "isChecked": false},
-    {"question": "วิธีใช้", "isChecked": false},
-    {"question": "คำเตือน", "isChecked": false},
-    {"question": "ชื่อและที่อยู่ผู้ผลิต", "isChecked": false},
+    {"question": "เลขที่รับจดแจ้ง", "isChecked": false, "id": 1},
+    {
+      "question": "ชื่อเครื่องสำอาง หรือ ชื่อยี่ห้อ",
+      "isChecked": false,
+      "id": 2
+    },
+    {"question": "ประเภทเครื่องสำอาง", "isChecked": false, "id": 3},
+    {"question": "ส่วนประกอบ", "isChecked": false, "id": 4},
+    {"question": "วิธีใช้", "isChecked": false, "id": 5},
+    {"question": "คำเตือน", "isChecked": false, "id": 6},
+    {"question": "ชื่อและที่อยู่ผู้ผลิต", "isChecked": false, "id": 7},
     {
       "question": "เดือน ปี ที่ผลิต / ปี เดือน ที่ผลิต (MFG)",
-      "isChecked": false
+      "isChecked": false,
+      "id": 8
     },
     {
       "question": "เดือน ปี ที่ผลิต / ปี เดือน ที่หมดอายุ (EXP)",
-      "isChecked": false
+      "isChecked": false,
+      "id": 9
     },
-    {"question": "เลขแสดงครั้งที่ผลิต (lot no.)", "isChecked": false},
-    {"question": "ปริมาตรสุทธิ", "isChecked": false},
+    {"question": "เลขแสดงครั้งที่ผลิต (lot no.)", "isChecked": false, "id": 10},
+    {"question": "ปริมาตรสุทธิ", "isChecked": false, "id": 11},
   ];
 
   @override
@@ -52,6 +62,7 @@ class _CheckboxBadgeState extends State<CheckboxBadge> {
               setState(() {
                 badge["isChecked"] = newValue;
               });
+              _onChanged(badgeChecklists);
             },
           );
         }).toList()),

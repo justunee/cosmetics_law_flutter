@@ -4,7 +4,8 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class TrueFalseQuestion extends StatefulWidget {
-  const TrueFalseQuestion({Key? key}) : super(key: key);
+  final customAnswer;
+  const TrueFalseQuestion({Key? key, this.customAnswer}) : super(key: key);
 
   @override
   _TrueFalseQuestionState createState() => _TrueFalseQuestionState();
@@ -16,11 +17,18 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
     {
       "question":
           "บนฉลากมีข้อความที่เป็นเท็จ/เกินจริง อาจก่อให้เกิดความเข้าใจผิดในสาระสำคัญ แสดงสรรพคุณรักษาโรค สรรพคุณบำรุงกาม สนับสนุนให้มีการกระทำผิดกฎหมาย ทำให้เกิดความแตกแยก หรือเป็นคำที่มีประกาศห้ามใช้ หรือไม่ ?",
-      "firstBox": "yes",
-      "secondBox": "no",
+      "firstBox": "มี",
+      "secondBox": "ไม่มี",
     },
   ];
   int test = 0;
+  void handleAnswer(int answer) {
+    if (answer == 1) {
+      widget.customAnswer(true, false);
+    } else {
+      widget.customAnswer(false, true);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +64,7 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
                 setState(() {
                   test = 1;
                 });
+                handleAnswer(1);
               },
             ),
           ),
@@ -72,6 +81,7 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
                 setState(() {
                   test = 2;
                 });
+                handleAnswer(2);
               },
             ),
           )

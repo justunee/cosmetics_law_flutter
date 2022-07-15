@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-enum AnswerKey { isLabel }
+enum AnswerKey { isLabel, fact, prohibitChem, more500 }
 
 @immutable
 class Questionare {
@@ -56,11 +56,30 @@ class QuestionareNotifier extends StateNotifier<Questionare> {
       case AnswerKey.isLabel:
         if (!answer) {
           modify("221", true);
+          modify("321", true);
+        }
+        break;
+      case AnswerKey.fact:
+        if (!answer) {
+          modify("2221", true);
           modify("322", true);
+        }
+        break;
+      case AnswerKey.prohibitChem:
+        if (!answer) {
+          modify("271", true);
+          modify("284", true);
+        }
+        break;
+      case AnswerKey.more500:
+        if (!answer) {
+          modify("274", true);
+          modify("61", true);
         }
         break;
       default:
     }
+    print(state.checklist);
   }
 }
 

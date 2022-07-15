@@ -1,3 +1,4 @@
+import 'package:cosmetics_law/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../providers/providers.dart';
@@ -35,7 +36,8 @@ class BaseBottomBar extends HookConsumerWidget {
               onTap: (int index) {
                 if (index == 0) {
                   // navigate home
-                  Navigator.pushReplacementNamed(context, '/');
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/', (Route<dynamic> route) => false);
                 } else {
                   onClickAction();
                 }

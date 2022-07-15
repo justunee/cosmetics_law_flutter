@@ -1,6 +1,23 @@
+import 'package:cosmetics_law/screens/confirm_search_product.dart';
+import 'package:cosmetics_law/screens/example.dart';
+import 'package:cosmetics_law/screens/question1_page.dart';
+import 'package:cosmetics_law/screens/question4_page.dart';
+import 'package:cosmetics_law/screens/question5_page.dart';
+import 'package:cosmetics_law/screens/question6_page.dart';
+import 'package:cosmetics_law/screens/question7_page.dart';
+import 'package:cosmetics_law/screens/question8_page.dart';
+import 'package:cosmetics_law/screens/question9_page.dart';
 import 'package:cosmetics_law/screens/question_with_provider_example.dart';
+import 'package:cosmetics_law/screens/safe_question1.dart';
+import 'package:cosmetics_law/screens/safe_question2.dart';
+import 'package:cosmetics_law/screens/safe_question3.dart';
+import 'package:cosmetics_law/screens/safe_question4.dart';
+import 'package:cosmetics_law/screens/safe_question5.dart';
+import 'package:cosmetics_law/screens/safe_question6.dart';
+import 'package:cosmetics_law/screens/safe_question7.dart';
 import 'package:cosmetics_law/screens/screens.dart';
-import 'package:cosmetics_law/screens/true_false_question.dart';
+import 'package:cosmetics_law/screens/question3_page.dart';
+import 'package:cosmetics_law/screens/search_product.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:cosmetics_law/widgets/custom_material_color.dart';
@@ -25,6 +42,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'Sukhumvit Set',
         // This is the theme of your application.
         //
         // Try running your application with "flutter run". You'll see the
@@ -41,11 +59,52 @@ class MyApp extends StatelessWidget {
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
       routes: <String, WidgetBuilder>{
-        '/question_lists': (BuildContext context) =>
-            const QuestionPage(title: 'test'),
-        '/truefalse_question': (BuildContext context) =>
-            const TrueFlaseQuestionPage(title: 'truefalse_question'),
-        '/question2': (BuildContext context) => const MyExamplePage(),
+        '/question_example': (BuildContext context) => const MyExamplePage(),
+        '/question_example_widget': (BuildContext context) => const ExamplePage(
+              title: 'example',
+            ),
+        '/question1': (BuildContext context) =>
+            const Question1Page(title: 'have_badge'),
+        '/question2': (BuildContext context) =>
+            const Question2Page(title: 'Listed_in_cosmetics_badge'),
+        '/question3': (BuildContext context) =>
+            const Question3Page(title: 'true_false_info'),
+        '/searchProd': (BuildContext context) =>
+            const SearchProductIdPage(title: 'search_Prod'),
+        '/question4': (BuildContext context) =>
+            const Question4Page(title: 'true_false_info'),
+        '/question5': (BuildContext context) =>
+            const Question5Page(title: 'true_false_info'),
+        '/question6': (BuildContext context) =>
+            const Question6Page(title: 'true_false_info'),
+        '/question7': (BuildContext context) =>
+            const Question7Page(title: 'true_false_info'),
+        '/question8': (BuildContext context) =>
+            const Question8Page(title: 'true_false_info'),
+        '/question9': (BuildContext context) =>
+            const Question9Page(title: 'true_false_info'),
+        // '/question10': (BuildContext context) =>
+        //     const Question10Page(title: 'true_false_info'),
+        // '/question11': (BuildContext context) =>
+        //     const Question11Page(title: 'true_false_info'),
+        // '/question12': (BuildContext context) =>
+        //     const Question12Page(title: 'true_false_info'),
+        '/confirmSearchProd': (BuildContext context) =>
+            const ConfirmSearchIdPage(title: 'confirm_search_Prod'),
+        '/safetyQuestion1': (BuildContext context) =>
+            const Safe_question1Page(title: 'safety_question1'),
+        '/safetyQuestion2': (BuildContext context) =>
+            const Safe_question2Page(title: 'safety_question2'),
+        '/safetyQuestion3': (BuildContext context) =>
+            const Safe_question3Page(title: 'safety_question3'),
+        '/safetyQuestion4': (BuildContext context) =>
+            const Safe_question4Page(title: 'safety_question4'),
+        '/safetyQuestion5': (BuildContext context) =>
+            const Safe_question5Page(title: 'safety_question5'),
+        '/safetyQuestion6': (BuildContext context) =>
+            const Safe_question6Page(title: 'safety_question6'),
+        '/safetyQuestion7': (BuildContext context) =>
+            const Safe_question7Page(title: 'safety_question7'),
       },
     );
   }

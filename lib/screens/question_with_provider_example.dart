@@ -42,7 +42,7 @@ class MyExamplePage extends ConsumerWidget {
                 ElevatedButton(
                   child: const Text('Go to Question'),
                   onPressed: () {
-                    Navigator.pushNamed(context, "/question_lists");
+                    Navigator.pushNamed(context, "/question2");
                   },
                 ),
               ],

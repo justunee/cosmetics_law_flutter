@@ -1,8 +1,9 @@
+import 'package:cosmetics_law/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import '../widgets/checkbox_list.dart';
 
-class QuestionPage extends StatefulWidget {
-  const QuestionPage({Key? key, required this.title}) : super(key: key);
+class Question2Page extends StatefulWidget {
+  const Question2Page({Key? key, required this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -16,10 +17,10 @@ class QuestionPage extends StatefulWidget {
   final String title;
 
   @override
-  State<QuestionPage> createState() => _QuestionPageState();
+  State<Question2Page> createState() => _Question2PageState();
 }
 
-class _QuestionPageState extends State<QuestionPage> {
+class _Question2PageState extends State<Question2Page> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -44,14 +45,14 @@ class _QuestionPageState extends State<QuestionPage> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100.00,
-        // Here we take the value from the QuestionPage object that was created by
+        // Here we take the value from the Question2Page object that was created by
         // the App.build method, and use it to set our appbar title.
         title: const Text('โหมดผลิตภัณฑ์',
             style: TextStyle(
-                fontSize: 30.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Sukhumvit Set')),
+              fontSize: 24.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            )),
       ),
       body: Scrollbar(
         child: SingleChildScrollView(
@@ -84,6 +85,11 @@ class _QuestionPageState extends State<QuestionPage> {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: QuestionareBottomBar(
+        onClickAction: () {
+          Navigator.pushNamed(context, '/question3');
+        },
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
