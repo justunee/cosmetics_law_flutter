@@ -1,3 +1,4 @@
+import 'package:cosmetics_law/screens/question_with_provider_example.dart';
 import 'package:cosmetics_law/screens/screens.dart';
 import 'package:cosmetics_law/screens/true_false_question.dart';
 import 'package:flutter/material.dart';
@@ -42,8 +43,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/question_lists': (BuildContext context) =>
             const QuestionPage(title: 'test'),
-        '/truefalse_question': (BuildContext context) =>
-            const TrueFlaseQuestionPage(title: 'truefalse_question')
+        '/question2': (BuildContext context) => const MyExamplePage(),
       },
     );
   }
