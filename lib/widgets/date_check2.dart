@@ -14,7 +14,6 @@ class Date2_check_Question extends ConsumerStatefulWidget {
 
 class _Date2_check_QuestionState extends ConsumerState<Date2_check_Question> {
   // Generate a list of available hobbies here
-
   void handleAnswer(String date, int id) {
     if (id == 1) {
       ref.read(date3Provider.notifier).update((state) => DateTime.parse(date));

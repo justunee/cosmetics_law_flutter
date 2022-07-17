@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'custom_material_color.dart';
 
@@ -19,7 +20,8 @@ class DatepickerWidget extends StatelessWidget {
         firstDate: DateTime(2015, 8),
         lastDate: DateTime(2101));
     if (picked != null) {
-      controller.text = picked.toString();
+      String formattedDate = DateFormat('yyyy-MM-dd').format(picked);
+      controller.text = formattedDate;
       onDateSelected(picked.toString());
     }
   }

@@ -60,7 +60,7 @@ class _Question12PageState extends ConsumerState<Question12Page> {
         if (checklist['1'] == false) {
           ref
               .read(questionaresProvider.notifier)
-              .answer(false, AnswerKey.date2after);7
+              .answer(false, AnswerKey.date2after);
           Navigator.pushNamed(context, '/safetyQuestion1');
         } else {
           ref
