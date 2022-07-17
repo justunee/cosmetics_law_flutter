@@ -1,6 +1,5 @@
 import 'package:cosmetics_law/widgets/bottom_bar.dart';
-import 'package:cosmetics_law/widgets/notify_cosme.dart';
-import 'package:cosmetics_law/widgets/producer_name2.dart';
+import 'package:cosmetics_law/widgets/status_cosme.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -27,15 +26,17 @@ class _Question10PageState extends ConsumerState<Question10Page> {
     {
       "firstBox": false,
       "secondBox": false,
+      "thirdBox": false,
     },
   ];
 
-  void parentSetAnswer(bool firstBox, bool secondBox) {
+  void parentSetAnswer(bool firstBox, bool secondBox, bool thirdBox) {
     setState(() {
       Answer[0]["firstBox"] = firstBox;
       Answer[0]["secondBox"] = secondBox;
+      Answer[0]["thirdBox"] = thirdBox;
     });
-    print(Answer[0]["firstBox"]);
+    print(Answer[0]);
   }
 
   @override
@@ -84,7 +85,7 @@ class _Question10PageState extends ConsumerState<Question10Page> {
               // horizontal).
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Notify_Cosme_Question(customAnswer: parentSetAnswer)
+                Status_cosme_Question(customAnswer: parentSetAnswer)
               ],
             ),
           ),
@@ -93,9 +94,11 @@ class _Question10PageState extends ConsumerState<Question10Page> {
       bottomNavigationBar: QuestionareBottomBar(
         onClickAction: () {
           if (Answer[0]["firstBox"] == true) {
-            Navigator.pushNamed(context, '/safetyQuestion2');
+            Navigator.pushNamed(context, '/safetyQuestion1');
+          } else if (Answer[0]["secondBox"] == true) {
+            Navigator.pushNamed(context, '/question11');
           } else {
-            Navigator.pushNamed(context, '/safetyQuestion3');
+            Navigator.pushNamed(context, '/question12');
           }
         },
       ),

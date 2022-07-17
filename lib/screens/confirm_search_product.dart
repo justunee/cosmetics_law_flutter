@@ -1,3 +1,5 @@
+import 'package:cosmetics_law/providers/badgeChecklist.dart';
+import 'package:cosmetics_law/providers/badgeThaiChecklist.dart';
 import 'package:cosmetics_law/providers/providers.dart';
 import 'package:cosmetics_law/widgets/bottom_bar.dart';
 import 'package:cosmetics_law/widgets/custom_material_color.dart';
@@ -19,6 +21,15 @@ class ConfirmSearchIdPage extends HookConsumerWidget {
         await launchUrl(Url, mode: LaunchMode.externalApplication);
       } else {
         throw 'Could not launch $Uri';
+      }
+    }
+
+    void conditionRoute() {
+      final data = ref.watch(BadgeChecklistsProvider).checklist;
+      if (data['1'] == true) {
+        Navigator.pushNamed(context, '/question7');
+      } else if (data['7'] == true) {
+        Navigator.pushNamed(context, '/question4');
       }
     }
 
@@ -129,7 +140,7 @@ class ConfirmSearchIdPage extends HookConsumerWidget {
       ),
       bottomNavigationBar: QuestionareBottomBar(
         onClickAction: () {
-          Navigator.pushNamed(context, '/question3');
+          conditionRoute();
         },
       ),
     );

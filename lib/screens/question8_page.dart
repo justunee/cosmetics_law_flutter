@@ -84,10 +84,7 @@ class Question8Page extends HookConsumerWidget {
                                   ),
                                   onPressed: () {
                                     _launchURL();
-                                    ref
-                                        .read(pageClickProvider.notifier)
-                                        .update((state) => true);
-                                    print(PageClick);
+                                    Navigator.pushNamed(context, '/question9');
                                   },
                                   child: Text('ไปขึ้นตอนถัดไป'))
                             ],

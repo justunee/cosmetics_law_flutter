@@ -86,7 +86,7 @@ class _Question1PageState extends ConsumerState<Question1Page> {
             ref
                 .read(questionaresProvider.notifier)
                 .answer(false, AnswerKey.isLabel);
-            Navigator.pushNamed(context, '/question_example');
+            Navigator.pushNamed(context, '/safetyQuestion1');
           }
         },
       ),

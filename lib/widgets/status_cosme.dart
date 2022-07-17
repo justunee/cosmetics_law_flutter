@@ -16,14 +16,17 @@ class _Status_cosme_QuestionState extends State<Status_cosme_Question> {
       "question": "สถานะของใบรับจดแจ้งเป็นอย่างไร",
       "firstBox": "อนุมัติ",
       "secondBox": "เพิกถอน",
+      "thirdBox": "สิ้นอายุ/ สิ้นสภาพ/ ยกเลิก",
     },
   ];
   int test = 0;
   void handleAnswer(int answer) {
     if (answer == 1) {
-      widget.customAnswer(true, false);
+      widget.customAnswer(true, false, false);
+    } else if (answer == 2) {
+      widget.customAnswer(false, true, false);
     } else {
-      widget.customAnswer(false, true);
+      widget.customAnswer(false, false, true);
     }
   }
 
@@ -79,6 +82,23 @@ class _Status_cosme_QuestionState extends State<Status_cosme_Question> {
                   test = 2;
                 });
                 handleAnswer(2);
+              },
+            ),
+          ),
+          Card(
+            child: CheckboxListTile(
+              dense: true,
+              value: test == 3,
+              title: Text(thaiBadge[0]["thirdBox"]),
+              checkboxShape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              ),
+              controlAffinity: ListTileControlAffinity.leading,
+              onChanged: (newValue) {
+                setState(() {
+                  test = 3;
+                });
+                handleAnswer(3);
               },
             ),
           )

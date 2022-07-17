@@ -1,8 +1,12 @@
+import 'package:cosmetics_law/providers/badgeChecklist.dart';
+import 'package:cosmetics_law/providers/badgeThaiChecklist.dart';
+import 'package:cosmetics_law/providers/questionare.dart';
 import 'package:cosmetics_law/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../widgets/checkbox_list.dart';
 
-class Question2Page extends StatefulWidget {
+class Question2Page extends ConsumerStatefulWidget {
   const Question2Page({Key? key, required this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -17,10 +21,10 @@ class Question2Page extends StatefulWidget {
   final String title;
 
   @override
-  State<Question2Page> createState() => _Question2PageState();
+  ConsumerState<Question2Page> createState() => _Question2PageState();
 }
 
-class _Question2PageState extends State<Question2Page> {
+class _Question2PageState extends ConsumerState<Question2Page> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -36,6 +40,19 @@ class _Question2PageState extends State<Question2Page> {
 
   @override
   Widget build(BuildContext context) {
+    void updateQuestion() {
+      final data = ref.watch(BadgeThaiChecklistsProvider).checklist;
+      if (data['2'] == true) {
+        ref
+            .read(questionaresProvider.notifier)
+            .answer(false, AnswerKey.haveThai);
+      } else if (data['3'] == true) {
+        ref
+            .read(questionaresProvider.notifier)
+            .answer(false, AnswerKey.haveFullThai);
+      }
+    }
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -88,6 +105,7 @@ class _Question2PageState extends State<Question2Page> {
       ),
       bottomNavigationBar: QuestionareBottomBar(
         onClickAction: () {
+          updateQuestion();
           Navigator.pushNamed(context, '/question3');
         },
       ),

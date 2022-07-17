@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-enum AnswerKey { isLabel, fact, prohibitChem, more500 }
+enum AnswerKey {
+  isLabel,
+  fact,
+  prohibitChem,
+  more500,
+  haveThai,
+  haveFullThai,
+  foundId,
+  nameEqualId,
+  producerName,
+  producerName2,
+  paperInfo,
+  date1before,
+  date1after,
+  date2after,
+  date2NotShow,
+}
 
 @immutable
 class Questionare {
@@ -75,6 +91,73 @@ class QuestionareNotifier extends StateNotifier<Questionare> {
         if (!answer) {
           modify("274", true);
           modify("61", true);
+        }
+        break;
+      case AnswerKey.haveThai:
+        if (!answer) {
+          modify("2222", true);
+          modify("323", true);
+        }
+        break;
+      case AnswerKey.haveFullThai:
+        if (!answer) {
+          modify("2223", true);
+          modify("323", true);
+        }
+        break;
+      case AnswerKey.foundId:
+        if (!answer) {
+          modify("272", true);
+          modify("294", true);
+        }
+        break;
+      case AnswerKey.nameEqualId:
+        if (!answer) {
+          modify("272", true);
+          modify("294", true);
+        }
+        break;
+      case AnswerKey.producerName:
+        if (!answer) {
+          modify("272", true);
+          modify("291", true);
+        }
+        break;
+      case AnswerKey.producerName2:
+        if (!answer) {
+          modify("272", true);
+          modify("291", true);
+        }
+        break;
+      case AnswerKey.paperInfo:
+        if (!answer) {
+          modify("272", true);
+          modify("291", true);
+        }
+        break;
+      case AnswerKey.date1before:
+        if (!answer) {
+          modify("275", true);
+          modify("61", true);
+        }
+        break;
+      case AnswerKey.date1after:
+        if (!answer) {
+          modify("275", true);
+          modify("61", true);
+        }
+        break;
+      case AnswerKey.date2after:
+        if (!answer) {
+          modify("272", true);
+          modify("294", true);
+        }
+        break;
+
+      case AnswerKey.date2NotShow:
+        if (!answer) {
+          modify("141", true);
+          modify("321", true);
         }
         break;
       default:

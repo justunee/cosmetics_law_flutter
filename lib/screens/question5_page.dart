@@ -1,3 +1,5 @@
+import 'package:cosmetics_law/providers/providers.dart';
+import 'package:cosmetics_law/providers/questionare.dart';
 import 'package:cosmetics_law/widgets/bottom_bar.dart';
 import 'package:cosmetics_law/widgets/cosme_name.dart';
 import 'package:flutter/material.dart';
@@ -92,9 +94,14 @@ class _Question5PageState extends ConsumerState<Question5Page> {
       bottomNavigationBar: QuestionareBottomBar(
         onClickAction: () {
           if (Answer[0]["firstBox"] == true) {
-            Navigator.pushNamed(context, '/safetyQuestion2');
+            ref.read(question5Provider.notifier).update((state) => true);
+            Navigator.pushNamed(context, '/question6');
           } else {
-            Navigator.pushNamed(context, '/safetyQuestion3');
+            ref.read(question5Provider.notifier).update((state) => false);
+            ref
+                .read(questionaresProvider.notifier)
+                .answer(false, AnswerKey.nameEqualId);
+            Navigator.pushNamed(context, '/question6');
           }
         },
       ),

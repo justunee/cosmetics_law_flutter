@@ -1,3 +1,5 @@
+import 'package:cosmetics_law/providers/providers.dart';
+import 'package:cosmetics_law/providers/questionare.dart';
 import 'package:cosmetics_law/widgets/bottom_bar.dart';
 import 'package:cosmetics_law/widgets/producer_name.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +41,26 @@ class _Question6PageState extends ConsumerState<Question6Page> {
 
   @override
   Widget build(BuildContext context) {
+    void selectedRoute() {
+      final data = ref.watch(question5Provider);
+
+      if (Answer[0]["firstBox"] == true && data == true) {
+        Navigator.pushNamed(context, '/safetyQuestion1');
+      } else if (Answer[0]["firstBox"] == false && data == true) {
+        ref
+            .read(questionaresProvider.notifier)
+            .answer(false, AnswerKey.producerName);
+        Navigator.pushNamed(context, '/question10');
+      } else if (Answer[0]["firstBox"] == true && data == false) {
+        Navigator.pushNamed(context, '/question10');
+      } else if (Answer[0]["firstBox"] == false && data == false) {
+        ref
+            .read(questionaresProvider.notifier)
+            .answer(false, AnswerKey.producerName);
+        Navigator.pushNamed(context, '/question10');
+      }
+    }
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -91,11 +113,15 @@ class _Question6PageState extends ConsumerState<Question6Page> {
       ),
       bottomNavigationBar: QuestionareBottomBar(
         onClickAction: () {
-          if (Answer[0]["firstBox"] == true) {
-            Navigator.pushNamed(context, '/safetyQuestion2');
-          } else {
-            Navigator.pushNamed(context, '/safetyQuestion3');
-          }
+          // if (Answer[0]["firstBox"] == true) {
+          //   Navigator.pushNamed(context, '/question6');
+          // } else {
+          //   ref
+          //       .read(questionaresProvider.notifier)
+          //       .answer(false, AnswerKey.nameEqualId);
+          //   Navigator.pushNamed(context, '/question6');
+          // }
+          selectedRoute();
         },
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
