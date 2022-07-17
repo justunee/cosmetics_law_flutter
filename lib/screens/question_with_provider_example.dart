@@ -42,8 +42,20 @@ class MyExamplePage extends ConsumerWidget {
                 ElevatedButton(
                   child: const Text('Go to Question'),
                   onPressed: () {
-                    Navigator.pushNamed(context, "/question");
+                    Navigator.pushNamed(context, "/question2");
                   },
+                ),
+                Container(
+                  child: DatepickerWidget(
+                    controller: TextEditingController(
+                      text: questionare.checklist["221"] == true
+                          ? "Date: ${questionare.checklist["221_date"]}"
+                          : "",
+                    ),
+                    onDateSelected: (String date) {
+                      print(date);
+                    },
+                  ),
                 ),
               ],
             ),

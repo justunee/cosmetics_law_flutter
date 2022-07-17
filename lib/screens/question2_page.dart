@@ -1,8 +1,13 @@
+import 'package:cosmetics_law/providers/badgeChecklist.dart';
+import 'package:cosmetics_law/providers/badgeThaiChecklist.dart';
+import 'package:cosmetics_law/providers/questionare.dart';
+import 'package:cosmetics_law/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../widgets/checkbox_list.dart';
 
-class QuestionPage extends StatefulWidget {
-  const QuestionPage({Key? key, required this.title}) : super(key: key);
+class Question2Page extends ConsumerStatefulWidget {
+  const Question2Page({Key? key, required this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -16,10 +21,10 @@ class QuestionPage extends StatefulWidget {
   final String title;
 
   @override
-  State<QuestionPage> createState() => _QuestionPageState();
+  ConsumerState<Question2Page> createState() => _Question2PageState();
 }
 
-class _QuestionPageState extends State<QuestionPage> {
+class _Question2PageState extends ConsumerState<Question2Page> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -35,6 +40,19 @@ class _QuestionPageState extends State<QuestionPage> {
 
   @override
   Widget build(BuildContext context) {
+    void updateQuestion() {
+      final data = ref.watch(BadgeThaiChecklistsProvider).checklist;
+      if (data['2'] == true) {
+        ref
+            .read(questionaresProvider.notifier)
+            .answer(false, AnswerKey.haveThai);
+      } else if (data['3'] == true) {
+        ref
+            .read(questionaresProvider.notifier)
+            .answer(false, AnswerKey.haveFullThai);
+      }
+    }
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -44,14 +62,14 @@ class _QuestionPageState extends State<QuestionPage> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100.00,
-        // Here we take the value from the QuestionPage object that was created by
+        // Here we take the value from the Question2Page object that was created by
         // the App.build method, and use it to set our appbar title.
         title: const Text('โหมดผลิตภัณฑ์',
             style: TextStyle(
-                fontSize: 30.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Sukhumvit Set')),
+              fontSize: 24.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            )),
       ),
       body: Scrollbar(
         child: SingleChildScrollView(
@@ -84,6 +102,12 @@ class _QuestionPageState extends State<QuestionPage> {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: QuestionareBottomBar(
+        onClickAction: () {
+          updateQuestion();
+          Navigator.pushNamed(context, '/question3');
+        },
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );

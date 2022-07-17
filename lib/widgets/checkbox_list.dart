@@ -1,38 +1,53 @@
-import 'package:cosmetics_law/widgets/custom_material_color.dart';
+import 'package:cosmetics_law/providers/badgeChecklist.dart';
+import 'package:cosmetics_law/providers/badgeThaiChecklist.dart';
 import 'package:cosmetics_law/widgets/question_list_container.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class CheckboxBadge extends StatefulWidget {
+class CheckboxBadge extends ConsumerStatefulWidget {
   const CheckboxBadge({Key? key}) : super(key: key);
 
   @override
-  _CheckboxBadgeState createState() => _CheckboxBadgeState();
+  ConsumerState createState() => _CheckboxBadgeState();
 }
 
-class _CheckboxBadgeState extends State<CheckboxBadge> {
+void _onChanged(int value, bool isChecked) {
+  print(value);
+  print(isChecked);
+}
+
+class _CheckboxBadgeState extends ConsumerState<CheckboxBadge> {
   // Generate a list of available hobbies here
   List<Map> badgeChecklists = [
-    {"question": "เลขที่รับจดแจ้ง", "isChecked": false},
-    {"question": "ชื่อเครื่องสำอาง หรือ ชื่อยี่ห้อ", "isChecked": false},
-    {"question": "ประเภทเครื่องสำอาง", "isChecked": false},
-    {"question": "ส่วนประกอบ", "isChecked": false},
-    {"question": "วิธีใช้", "isChecked": false},
-    {"question": "คำเตือน", "isChecked": false},
-    {"question": "ชื่อและที่อยู่ผู้ผลิต", "isChecked": false},
+    {"question": "เลขที่รับจดแจ้ง", "isChecked": false, "id": 1},
+    {
+      "question": "ชื่อเครื่องสำอาง หรือ ชื่อยี่ห้อ",
+      "isChecked": false,
+      "id": 2
+    },
+    {"question": "ประเภทเครื่องสำอาง", "isChecked": false, "id": 3},
+    {"question": "ส่วนประกอบ", "isChecked": false, "id": 4},
+    {"question": "วิธีใช้", "isChecked": false, "id": 5},
+    {"question": "คำเตือน", "isChecked": false, "id": 6},
+    {"question": "ชื่อและที่อยู่ผู้ผลิต", "isChecked": false, "id": 7},
     {
       "question": "เดือน ปี ที่ผลิต / ปี เดือน ที่ผลิต (MFG)",
-      "isChecked": false
+      "isChecked": false,
+      "id": 8
     },
     {
       "question": "เดือน ปี ที่ผลิต / ปี เดือน ที่หมดอายุ (EXP)",
-      "isChecked": false
+      "isChecked": false,
+      "id": 9
     },
-    {"question": "เลขแสดงครั้งที่ผลิต (lot no.)", "isChecked": false},
-    {"question": "ปริมาตรสุทธิ", "isChecked": false},
+    {"question": "เลขแสดงครั้งที่ผลิต (lot no.)", "isChecked": false, "id": 10},
+    {"question": "ปริมาตรสุทธิ", "isChecked": false, "id": 11},
   ];
 
   @override
   Widget build(BuildContext context) {
+    dynamic data = ref.watch(BadgeChecklistsProvider).checklist;
+
     return Column(children: [
       question_list_container(title: "รายการใดที่ไม่พบบนฉลาก"),
       Padding(
@@ -52,6 +67,12 @@ class _CheckboxBadgeState extends State<CheckboxBadge> {
               setState(() {
                 badge["isChecked"] = newValue;
               });
+
+              ref
+                  .read(BadgeChecklistsProvider.notifier)
+                  .answer(badge["id"].toString(), badge["isChecked"]);
+
+              // print(data.checklist['1']);
             },
           );
         }).toList()),
@@ -60,25 +81,27 @@ class _CheckboxBadgeState extends State<CheckboxBadge> {
   }
 }
 
-class CheckboxThaiBadge extends StatefulWidget {
+class CheckboxThaiBadge extends ConsumerStatefulWidget {
   const CheckboxThaiBadge({Key? key}) : super(key: key);
 
   @override
-  _CheckboxThaiBadgeState createState() => _CheckboxThaiBadgeState();
+  ConsumerState createState() => _CheckboxThaiBadgeState();
 }
 
-class _CheckboxThaiBadgeState extends State<CheckboxThaiBadge> {
+class _CheckboxThaiBadgeState extends ConsumerState<CheckboxThaiBadge> {
   // Generate a list of available hobbies here
   List<Map> thaiBadge = [
-    {"question": "แสดงภาษาไทยครบทุกรายการ", "isChecked": false},
-    {"question": "แสดงภาษาไทยไม่ครบทุกรายการ", "isChecked": false},
-    {"question": "ไม่แสดงภาษาไทย", "isChecked": false},
+    {"question": "แสดงภาษาไทยครบทุกรายการ", "isChecked": false, "id": 1},
+    {"question": "แสดงภาษาไทยไม่ครบทุกรายการ", "isChecked": false, "id": 2},
+    {"question": "ไม่แสดงภาษาไทย", "isChecked": false, "id": 3},
   ];
 
   // String title = "";
 
   @override
   Widget build(BuildContext context) {
+    dynamic data = ref.watch(BadgeThaiChecklistsProvider).checklist;
+
     Color getColor(Set<MaterialState> states) {
       const Set<MaterialState> interactiveStates = <MaterialState>{
         MaterialState.pressed,
@@ -110,6 +133,9 @@ class _CheckboxThaiBadgeState extends State<CheckboxThaiBadge> {
               setState(() {
                 badge["isChecked"] = newValue;
               });
+              ref
+                  .read(BadgeThaiChecklistsProvider.notifier)
+                  .answer(badge["id"].toString(), badge["isChecked"]);
             },
           );
         }).toList()),

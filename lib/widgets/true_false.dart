@@ -4,7 +4,8 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class TrueFalseQuestion extends StatefulWidget {
-  const TrueFalseQuestion({Key? key}) : super(key: key);
+  final customAnswer;
+  const TrueFalseQuestion({Key? key, this.customAnswer}) : super(key: key);
 
   @override
   _TrueFalseQuestionState createState() => _TrueFalseQuestionState();
@@ -14,15 +15,20 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
   // Generate a list of available hobbies here
   List<Map> thaiBadge = [
     {
-      "question": "first question",
-      "firstBox": "yes",
-      "secondBox": "no",
-      "isChecked": false
+      "question":
+          "บนฉลากมีข้อความที่เป็นเท็จ/เกินจริง อาจก่อให้เกิดความเข้าใจผิดในสาระสำคัญ แสดงสรรพคุณรักษาโรค สรรพคุณบำรุงกาม สนับสนุนให้มีการกระทำผิดกฎหมาย ทำให้เกิดความแตกแยก หรือเป็นคำที่มีประกาศห้ามใช้ หรือไม่ ?",
+      "firstBox": "มี",
+      "secondBox": "ไม่มี",
     },
   ];
-  bool isChecked = false;
-  bool isClicked = false;
-  // String title = "";
+  int test = 0;
+  void handleAnswer(int answer) {
+    if (answer == 1) {
+      widget.customAnswer(true, false);
+    } else {
+      widget.customAnswer(false, true);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,52 +54,34 @@ class _TrueFalseQuestionState extends State<TrueFalseQuestion> {
           Card(
             child: CheckboxListTile(
               dense: true,
-              value: isChecked,
+              value: test == 1,
               title: Text(thaiBadge[0]["firstBox"]),
               checkboxShape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
               controlAffinity: ListTileControlAffinity.leading,
               onChanged: (newValue) {
-                print(thaiBadge[0]["firstBox"]);
-
-                // setState(() {
-                //   if (badge["status"] == "Yes") {
-                //     badge[{"status" == "no", "isChecked" == false}] = false;
-                //     badge[{"status" == "yes", "isChecked" == false}] = newValue;
-                //   } else {
-                //     badge[{"status" == "yes", "isChecked" == false}] = false;
-                //     badge[{"status" == "no", "isChecked" == false}] = newValue;
-                //   }
-
-                //   // badge["isChecked"] = newValue;
-                // });
+                setState(() {
+                  test = 1;
+                });
+                handleAnswer(1);
               },
             ),
           ),
           Card(
             child: CheckboxListTile(
               dense: true,
-              value: isChecked,
+              value: test == 2,
               title: Text(thaiBadge[0]["secondBox"]),
               checkboxShape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
               controlAffinity: ListTileControlAffinity.leading,
               onChanged: (newValue) {
-                print(thaiBadge[0]["secondBox"]);
-
-                // setState(() {
-                //   if (badge["status"] == "Yes") {
-                //     badge[{"status" == "no", "isChecked" == false}] = false;
-                //     badge[{"status" == "yes", "isChecked" == false}] = newValue;
-                //   } else {
-                //     badge[{"status" == "yes", "isChecked" == false}] = false;
-                //     badge[{"status" == "no", "isChecked" == false}] = newValue;
-                //   }
-
-                //   // badge["isChecked"] = newValue;
-                // });
+                setState(() {
+                  test = 2;
+                });
+                handleAnswer(2);
               },
             ),
           )

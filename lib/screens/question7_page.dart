@@ -1,9 +1,11 @@
-import 'package:cosmetics_law/widgets/true_false.dart';
+import 'package:cosmetics_law/providers/questionare.dart';
+import 'package:cosmetics_law/widgets/bottom_bar.dart';
+import 'package:cosmetics_law/widgets/producer_name2.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class TrueFlaseQuestionPage extends StatefulWidget {
-  const TrueFlaseQuestionPage({Key? key, required this.title})
-      : super(key: key);
+class Question7Page extends ConsumerStatefulWidget {
+  const Question7Page({Key? key, required this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -17,21 +19,23 @@ class TrueFlaseQuestionPage extends StatefulWidget {
   final String title;
 
   @override
-  State<TrueFlaseQuestionPage> createState() => _TrueFlaseQuestionPageState();
+  ConsumerState<Question7Page> createState() => _Question7PageState();
 }
 
-class _TrueFlaseQuestionPageState extends State<TrueFlaseQuestionPage> {
-  int _counter = 0;
+class _Question7PageState extends ConsumerState<Question7Page> {
+  List<Map> Answer = [
+    {
+      "firstBox": false,
+      "secondBox": false,
+    },
+  ];
 
-  void _incrementCounter() {
+  void parentSetAnswer(bool firstBox, bool secondBox) {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      Answer[0]["firstBox"] = firstBox;
+      Answer[0]["secondBox"] = secondBox;
     });
+    print(Answer[0]["firstBox"]);
   }
 
   @override
@@ -49,10 +53,10 @@ class _TrueFlaseQuestionPageState extends State<TrueFlaseQuestionPage> {
         // the App.build method, and use it to set our appbar title.
         title: const Text('โหมดผลิตภัณฑ์',
             style: TextStyle(
-                fontSize: 30.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Sukhumvit Set')),
+              fontSize: 24.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            )),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -79,10 +83,24 @@ class _TrueFlaseQuestionPageState extends State<TrueFlaseQuestionPage> {
               // axis because Columns are vertical (the cross axis would be
               // horizontal).
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[TrueFalseQuestion()],
+              children: <Widget>[
+                Producer_name2_Question(customAnswer: parentSetAnswer)
+              ],
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: QuestionareBottomBar(
+        onClickAction: () {
+          if (Answer[0]["firstBox"] == true) {
+            Navigator.pushNamed(context, '/question8');
+          } else {
+            ref
+                .read(questionaresProvider.notifier)
+                .answer(false, AnswerKey.producerName2);
+            Navigator.pushNamed(context, '/safetyQuestion1');
+          }
+        },
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );

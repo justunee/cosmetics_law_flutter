@@ -1,4 +1,4 @@
-import 'package:cosmetics_law/screens/question_lists.dart';
+import 'package:cosmetics_law/screens/question2_page.dart';
 import 'package:flutter/material.dart';
 import '../widgets/widgets.dart';
 import '../providers/providers.dart';
@@ -91,98 +91,47 @@ class _MyHomePageState extends State<MyHomePage> {
               // horizontal).
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const ExampleWidget(),
-                const Text(
-                  'You have pushed the button this many times:',
-                ),
-                Text(
-                  '$_counter',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-                Textfield(
-                  controller: controller,
-                ),
                 ElevatedButton(
-                    onPressed: () => showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            content: Text(controller.text),
-                          );
-                        }),
-                    child: const Text('Submit text')),
-                const SizedBox(
-                  height: 500,
-                  child: TabsBar(
-                    tabs: [
-                      Tab(
-                        child: SizedBox(
-                          width: 100,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text("APPS"),
-                          ),
-                        ),
-                      ),
-                      Tab(
-                        child: SizedBox(
-                          width: 100,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text("MOVIES"),
-                          ),
-                        ),
-                      ),
-                      Tab(
-                        child: SizedBox(
-                          width: 100,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: Text("GAMES"),
-                          ),
-                        ),
-                      ),
-                    ],
-                    tabChildrens: [
-                      Icon(Icons.directions_car),
-                      Icon(Icons.directions_transit),
-                      Icon(Icons.directions_bike),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                    height: 200,
-                    child: StepperWidget(
-                      currentStepProvider: stepProvider,
-                      stepChilds: steps,
-                    )),
-
-                Text(
-                  '$_counter',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-                Textfield(
-                  controller: controller,
-                ),
-                ElevatedButton(
-                    onPressed: () => showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            content: Text(controller.text),
-                          );
-                        }),
-                    child: const Text('Submit text')),
-                ElevatedButton(
-                  child: const Text('Go to Question'),
+                  child: const Text('Go to example provider'),
                   onPressed: () {
-                    Navigator.pushNamed(context, "/question_lists");
+                    Navigator.pushNamed(context, "/question_example");
                   },
                 ),
                 ElevatedButton(
-                  child: const Text('Go to TrueFalse_Question'),
+                  child: const Text('Go to example widget'),
                   onPressed: () {
-                    Navigator.pushNamed(context, "/truefalse_question");
+                    Navigator.pushNamed(context, "/question_example_widget");
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text('Go to Question1'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/question1");
+                  },
+                ),
+
+                ElevatedButton(
+                  child: const Text('Go to Question2'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/question2");
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text('go to question3'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/question3");
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text('go to Safety_question1'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/safetyQuestion1");
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text('go to Date question2'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/question12");
                   },
                 ),
 
