@@ -46,7 +46,9 @@ class MenuPage extends HookConsumerWidget {
                             color: Colors.white,
                             child: InkWell(
                               splashColor: Colors.green,
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.pushNamed(context, '/question1');
+                              },
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
