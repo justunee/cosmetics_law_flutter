@@ -1,7 +1,8 @@
 import 'package:cosmetics_law/widgets/custom_material_color.dart';
-import 'package:cosmetics_law/widgets/custom_material_color.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../providers/providers.dart';
 
 class MenuPage extends HookConsumerWidget {
   final String title;
@@ -47,6 +48,7 @@ class MenuPage extends HookConsumerWidget {
                             child: InkWell(
                               splashColor: Colors.green,
                               onTap: () {
+                                ref.read(questionaresProvider.notifier).reset();
                                 Navigator.pushNamed(context, '/question1');
                               },
                               child: Column(

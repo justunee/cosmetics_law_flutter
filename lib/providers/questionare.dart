@@ -49,47 +49,48 @@ class Questionare {
   }
 }
 
+const initState = Questionare(checklist: {
+  "221": false,
+  "2221": false,
+  "2222": false,
+  "2223": false,
+  "26": false,
+  "271": false,
+  "272": false,
+  "274": false,
+  "275": false,
+  "284": false,
+  "291": false,
+  "294": false,
+  "321": false,
+  "322": false,
+  "323": false,
+  "324": false,
+  "61": false,
+  "141": false,
+}, sellerChecklist: {
+  "221": false,
+  "2221": false,
+  "2222": false,
+  "2223": false,
+  "26": false,
+  "271": false,
+  "272": false,
+  "274": false,
+  "275": false,
+  "284": false,
+  "291": false,
+  "294": false,
+  "321": false,
+  "322": false,
+  "323": false,
+  "324": false,
+  "61": false,
+  "141": false,
+}, completed: false);
+
 class QuestionareNotifier extends StateNotifier<Questionare> {
-  QuestionareNotifier()
-      : super(const Questionare(checklist: {
-          "221": false,
-          "2221": false,
-          "2222": false,
-          "2223": false,
-          "26": false,
-          "271": false,
-          "272": false,
-          "274": false,
-          "275": false,
-          "284": false,
-          "291": false,
-          "294": false,
-          "321": false,
-          "322": false,
-          "323": false,
-          "324": false,
-          "61": false,
-          "141": false,
-        }, sellerChecklist: {
-          "221": false,
-          "2221": false,
-          "2222": false,
-          "2223": false,
-          "26": false,
-          "271": false,
-          "272": false,
-          "274": false,
-          "275": false,
-          "284": false,
-          "291": false,
-          "294": false,
-          "321": false,
-          "322": false,
-          "323": false,
-          "324": false,
-          "61": false,
-          "141": false,
-        }, completed: false));
+  QuestionareNotifier() : super(initState);
 
   void modify(String key, bool value) {
     state = state.copyWith(checklist: {...state.checklist, key: value});
@@ -98,6 +99,11 @@ class QuestionareNotifier extends StateNotifier<Questionare> {
   void modifySeller(String key, bool value) {
     state =
         state.copyWith(sellerChecklist: {...state.sellerChecklist, key: value});
+  }
+
+  void reset() {
+    print('resetting state....');
+    state = initState;
   }
 
   void answer(bool answer, AnswerKey key) {
