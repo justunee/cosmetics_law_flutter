@@ -37,16 +37,14 @@ class _Question1PageState extends ConsumerState<Question1Page> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100.00,
-        // Here we take the value from the TrueFlase object that was created by
+        // Here we take the value from the Question2Page object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Center(
-          child: const Text('โหมดผลิตภัณฑ์',
-              style: TextStyle(
-                fontSize: 24.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              )),
-        ),
+        title: const Text('โหมดผลิตภัณฑ์',
+            style: TextStyle(
+              fontSize: 24.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            )),
       ),
       body: SingleChildScrollView(
         child: Container(

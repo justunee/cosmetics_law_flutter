@@ -47,17 +47,21 @@ class _ExamplePageState extends State<ExamplePage> {
 
     var steps = <StepChild>[
       StepChild(
-        title: const Text('Step 1'),
+        title: const Text('การมีฉลาก'),
         content: const Text('Step 1 content'),
       ),
       StepChild(
-        title: const Text('Step 2'),
+        title: const Text('ความครบถ้วน'),
         content: const Text('Step 2 content'),
       ),
       StepChild(
-        title: const Text('Step 3'),
+        title: const Text('ความถูกต้อง'),
         content: const Text('Step 3 content'),
       ),
+      // StepChild(
+      //   title: const Text('ความปลอดภัย'),
+      //   content: const Text('Step 4 content'),
+      // ),
     ];
 
     return Scaffold(

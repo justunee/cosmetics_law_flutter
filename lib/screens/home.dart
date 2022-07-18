@@ -92,6 +92,12 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ElevatedButton(
+                  child: const Text('Go to catchmetic'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/catchmetic");
+                  },
+                ),
+                ElevatedButton(
                   child: const Text('Go to example provider'),
                   onPressed: () {
                     Navigator.pushNamed(context, "/question_example");

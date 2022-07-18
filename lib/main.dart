@@ -1,4 +1,7 @@
+import 'package:cosmetics_law/screens/catchmetic.dart';
+import 'package:cosmetics_law/screens/disclaimer.dart';
 import 'package:cosmetics_law/screens/example.dart';
+import 'package:cosmetics_law/screens/menu.dart';
 import 'package:cosmetics_law/screens/question10_page.dart';
 import 'package:cosmetics_law/screens/question11_page.dart';
 import 'package:cosmetics_law/screens/question12_page.dart';
@@ -54,6 +57,13 @@ class MyApp extends StatelessWidget {
         '/question_example_widget': (BuildContext context) => const ExamplePage(
               title: 'example',
             ),
+        // '/result': (BuildContext context) =>
+        //     const Question1Page(title: 'have_badge'),
+        '/menu': (BuildContext context) => const MenuPage(title: 'have_badge'),
+        '/disclaimer': (BuildContext context) =>
+            const DisclaimerPage(title: 'have_badge'),
+        '/catchmetic': (BuildContext context) =>
+            const CatchmeticPage(title: 'Catchemtic'),
         '/question1': (BuildContext context) =>
             const Question1Page(title: 'have_badge'),
         '/question2': (BuildContext context) =>

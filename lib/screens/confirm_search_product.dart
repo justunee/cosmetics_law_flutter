@@ -111,7 +111,7 @@ class ConfirmSearchIdPage extends HookConsumerWidget {
                                         .update((state) => true);
                                     print(PageClick);
                                   },
-                                  child: Text('ไปขึ้นตอนถัดไป'))
+                                  child: Text('ไปขั้นตอนถัดไป'))
                             ],
                           ),
                         ],
