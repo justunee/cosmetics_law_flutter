@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: CustomMaterialColor(228, 147, 161).mdColor,
         backgroundColor: CustomMaterialColor(228, 147, 161).mdColor,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const CatchmeticPage(title: 'Catchmetic Page'),
       routes: <String, WidgetBuilder>{
         '/question_example': (BuildContext context) => const MyExamplePage(),
         '/question_example_widget': (BuildContext context) => const ExamplePage(
