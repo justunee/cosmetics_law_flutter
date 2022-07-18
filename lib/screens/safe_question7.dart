@@ -97,9 +97,11 @@ class _Safe_question7PageState extends ConsumerState<Safe_question7Page> {
             ref
                 .read(questionaresProvider.notifier)
                 .answer(false, AnswerKey.more500);
-            Navigator.pushNamed(context, '/result');
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                '/result', (Route<dynamic> route) => false);
           } else {
-            Navigator.pushNamed(context, '/result');
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                '/result', (Route<dynamic> route) => false);
           }
         },
       ),

@@ -31,6 +31,13 @@ class ResultPage extends HookConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('สรุปผลการตรวจสอบ'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new),
+          onPressed: () {
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                '/menu', (Route<dynamic> route) => false);
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

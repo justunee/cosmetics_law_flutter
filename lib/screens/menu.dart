@@ -26,7 +26,7 @@ class MenuPage extends HookConsumerWidget {
                       Text(
                         'Catchmetic',
                         style: TextStyle(
-                          fontSize: 45,
+                          fontSize: 40,
                           fontWeight: FontWeight.bold,
                           color: Colors.white.withOpacity(0.8),
                         ),
@@ -34,14 +34,14 @@ class MenuPage extends HookConsumerWidget {
                       Text(
                         'เลือกโหมดที่ต้องการตรวจสอบ',
                         style: TextStyle(
-                          fontSize: 23,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white.withOpacity(0.8),
                         ),
                       ),
                       SizedBox(height: 16),
                       SizedBox.fromSize(
-                        size: Size(168, 168),
+                        size: Size(148, 148),
                         child: ClipOval(
                           child: Material(
                             color: Colors.white,
@@ -58,7 +58,7 @@ class MenuPage extends HookConsumerWidget {
                                   Text(
                                     "ผลิตภัณฑ์",
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 16,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   ), //), // <-- Text
@@ -70,13 +70,31 @@ class MenuPage extends HookConsumerWidget {
                       ),
                       SizedBox(height: 16),
                       SizedBox.fromSize(
-                        size: Size(168, 168),
+                        size: Size(148, 148),
                         child: ClipOval(
                           child: Material(
                             color: Colors.white,
                             child: InkWell(
                               splashColor: Colors.green,
-                              onTap: () {},
+                              onTap: () {
+                                showDialog<String>(
+                                  context: context,
+                                  builder: (BuildContext context) =>
+                                      AlertDialog(
+                                    title: const Text(
+                                        'Sorry we are not ready yet'),
+                                    content: const Text(
+                                        'Please wait patiently for our next update'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(context, 'OK'),
+                                        child: const Text('OK'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
@@ -84,7 +102,7 @@ class MenuPage extends HookConsumerWidget {
                                   Text(
                                     "บุคคล",
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 16,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   ), //), // <-- Text
@@ -96,13 +114,31 @@ class MenuPage extends HookConsumerWidget {
                       ),
                       SizedBox(height: 16),
                       SizedBox.fromSize(
-                        size: Size(168, 168),
+                        size: Size(148, 148),
                         child: ClipOval(
                           child: Material(
                             color: Colors.white,
                             child: InkWell(
                               splashColor: Colors.green,
-                              onTap: () {},
+                              onTap: () {
+                                showDialog<String>(
+                                  context: context,
+                                  builder: (BuildContext context) =>
+                                      AlertDialog(
+                                    title: const Text(
+                                        'Sorry we are not ready yet'),
+                                    content: const Text(
+                                        'Please wait patiently for our next update'),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(context, 'OK'),
+                                        child: const Text('OK'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
@@ -110,7 +146,7 @@ class MenuPage extends HookConsumerWidget {
                                   Text(
                                     "สถานที่",
                                     style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 16,
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold),
                                   ), //), // <-- Text

@@ -37,7 +37,7 @@ class BaseBottomBar extends HookConsumerWidget {
                 if (index == 0) {
                   // navigate home
                   Navigator.of(context).pushNamedAndRemoveUntil(
-                      '/', (Route<dynamic> route) => false);
+                      '/menu', (Route<dynamic> route) => false);
                 } else {
                   onClickAction();
                 }
