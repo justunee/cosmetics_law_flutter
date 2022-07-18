@@ -105,7 +105,7 @@ class ConfirmSearchIdPage extends HookConsumerWidget {
                                     ),
                                   ),
                                   onPressed: () {
-                                    _launchURL();
+                                    conditionRoute();
                                     ref
                                         .read(pageClickProvider.notifier)
                                         .update((state) => true);

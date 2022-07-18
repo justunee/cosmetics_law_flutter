@@ -116,7 +116,7 @@ class _CheckboxThaiBadgeState extends ConsumerState<CheckboxThaiBadge> {
 
     return Column(children: [
       question_list_container(
-          title: "รายการบนฉลากข้างต้นมีการแสดงภาษาไทยหรือไม"),
+          title: "รายการบนฉลากข้างต้นมีการแสดงภาษาไทยหรือไม่"),
       Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
