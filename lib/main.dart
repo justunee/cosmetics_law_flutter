@@ -106,6 +106,7 @@ class MyApp extends StatelessWidget {
             const Safe_question6Page(title: 'safety_question6'),
         '/safetyQuestion7': (BuildContext context) =>
             const Safe_question7Page(title: 'safety_question7'),
+        '/result': (BuildContext context) => const ResultPage(title: 'result'),
       },
     );
   }

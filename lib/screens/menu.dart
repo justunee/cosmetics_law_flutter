@@ -125,7 +125,7 @@ class MenuPage extends HookConsumerWidget {
                             color: Colors.white,
                             padding: const EdgeInsets.all(20),
                             onPressed: () {
-                              // Navigator.pushNamed(context, '/disclaimer');
+                              Navigator.pushNamed(context, '/result');
                             },
                             child: Text(
                               "สรุปผล",
