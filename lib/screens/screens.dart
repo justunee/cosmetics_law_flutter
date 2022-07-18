@@ -14,3 +14,4 @@ export 'safe_question4.dart';
 export 'safe_question5.dart';
 export 'safe_question6.dart';
 export 'safe_question7.dart';
+export 'result.dart';

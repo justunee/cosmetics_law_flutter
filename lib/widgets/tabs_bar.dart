@@ -6,14 +6,19 @@ import 'custom_material_color.dart';
 class TabsBar extends StatelessWidget {
   final List<Widget> tabs;
   final List<Widget> tabChildrens;
+  final double width;
 
-  const TabsBar({Key? key, required this.tabs, required this.tabChildrens})
+  const TabsBar(
+      {Key? key,
+      required this.tabs,
+      required this.tabChildrens,
+      this.width = 280})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: tabs.length,
       child: Column(
         children: [
           DecoratedBox(
@@ -34,7 +39,7 @@ class TabsBar extends StatelessWidget {
               padding: const EdgeInsets.all(5.0),
               child: SizedBox(
                 height: 30,
-                width: 280,
+                width: width,
                 child: TabBar(
                     unselectedLabelColor:
                         CustomMaterialColor(255, 171, 178).mdColor,

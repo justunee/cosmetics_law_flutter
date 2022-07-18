@@ -140,6 +140,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.pushNamed(context, "/question12");
                   },
                 ),
+                ElevatedButton(
+                  child: const Text('go to result'),
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/result");
+                  },
+                ),
 
                 // This trailing comma makes auto-formatting nicer for build methods.
               ],
