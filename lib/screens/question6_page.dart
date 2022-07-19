@@ -45,33 +45,25 @@ class _Question6PageState extends ConsumerState<Question6Page> {
       final data = ref.watch(question5Provider);
 
       if (Answer[0]["firstBox"] == true && data == true) {
-        Navigator.pushNamed(context, '/safetyQuestion1');
+        Navigator.pushNamed(context, '/question10');
       } else if (Answer[0]["firstBox"] == false && data == true) {
         ref
             .read(questionaresProvider.notifier)
             .answer(false, AnswerKey.producerName);
-        Navigator.pushNamed(context, '/question10');
+        Navigator.pushNamed(context, '/safetyQuestion1');
       } else if (Answer[0]["firstBox"] == true && data == false) {
-        Navigator.pushNamed(context, '/question10');
+        Navigator.pushNamed(context, '/safetyQuestion1');
       } else if (Answer[0]["firstBox"] == false && data == false) {
         ref
             .read(questionaresProvider.notifier)
             .answer(false, AnswerKey.producerName);
-        Navigator.pushNamed(context, '/question10');
+        Navigator.pushNamed(context, '/safetyQuestion1');
       }
     }
 
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100.00,
-        // Here we take the value from the TrueFlase object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: const Text('โหมดผลิตภัณฑ์',
             style: TextStyle(
               fontSize: 24.0,
