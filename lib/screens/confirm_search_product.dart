@@ -30,6 +30,8 @@ class ConfirmSearchIdPage extends HookConsumerWidget {
         Navigator.pushNamed(context, '/question7');
       } else if (data['7'] == true) {
         Navigator.pushNamed(context, '/question4');
+      } else {
+        Navigator.pushNamed(context, '/question4');
       }
     }
 
@@ -106,10 +108,10 @@ class ConfirmSearchIdPage extends HookConsumerWidget {
                                   ),
                                   onPressed: () {
                                     conditionRoute();
-                                    ref
-                                        .read(pageClickProvider.notifier)
-                                        .update((state) => true);
-                                    print(PageClick);
+                                    // ref
+                                    //     .read(pageClickProvider.notifier)
+                                    //     .update((state) => true);
+                                    // print(PageClick);
                                   },
                                   child: Text('ไปขั้นตอนถัดไป'))
                             ],
