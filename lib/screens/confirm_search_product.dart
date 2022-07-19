@@ -27,11 +27,11 @@ class ConfirmSearchIdPage extends HookConsumerWidget {
     void conditionRoute() {
       final data = ref.watch(BadgeChecklistsProvider).checklist;
       if (data['1'] == true) {
+        Navigator.pushNamed(context, '/question4');
+      } else if (data['7'] == true && data['1'] == false) {
         Navigator.pushNamed(context, '/question7');
-      } else if (data['7'] == true) {
-        Navigator.pushNamed(context, '/question4');
       } else {
-        Navigator.pushNamed(context, '/question4');
+        Navigator.pushNamed(context, '/safetyQuestion1');
       }
     }
 

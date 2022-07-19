@@ -43,7 +43,6 @@ class _Question6PageState extends ConsumerState<Question6Page> {
   Widget build(BuildContext context) {
     void selectedRoute() {
       final data = ref.watch(question5Provider);
-
       if (Answer[0]["firstBox"] == true && data == true) {
         Navigator.pushNamed(context, '/question10');
       } else if (Answer[0]["firstBox"] == false && data == true) {

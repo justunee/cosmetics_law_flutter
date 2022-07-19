@@ -34,13 +34,13 @@ class _Question11PageState extends ConsumerState<Question11Page> {
     if (date.compareTo(date1) < 0) {
       ref
           .read(questionaresProvider.notifier)
-          .answer(false, AnswerKey.date1before);
+          .answer(false, AnswerKey.date1after);
       Navigator.pushNamed(context, '/safetyQuestion1');
     }
     if (date.compareTo(date1) > 0) {
       ref
           .read(questionaresProvider.notifier)
-          .answer(false, AnswerKey.date1after);
+          .answer(false, AnswerKey.date1before);
       Navigator.pushNamed(context, '/safetyQuestion1');
       // print("date is after date1");
     }

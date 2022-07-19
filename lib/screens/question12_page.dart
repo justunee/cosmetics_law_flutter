@@ -57,7 +57,7 @@ class _Question12PageState extends ConsumerState<Question12Page> {
       }
       if (date.compareTo(date1) > 0) {
         final checklist = ref.watch(BadgeChecklistsProvider).checklist;
-        if (checklist['1'] == false) {
+        if (checklist['1'] == true) {
           ref
               .read(questionaresProvider.notifier)
               .answer(false, AnswerKey.date2after);

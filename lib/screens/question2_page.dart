@@ -26,6 +26,7 @@ class Question2Page extends ConsumerStatefulWidget {
 
 class _Question2PageState extends ConsumerState<Question2Page> {
   int _counter = 0;
+  var list = [];
 
   void _incrementCounter() {
     setState(() {
@@ -46,10 +47,17 @@ class _Question2PageState extends ConsumerState<Question2Page> {
         ref
             .read(questionaresProvider.notifier)
             .answer(false, AnswerKey.haveThai);
-      } else if (data['3'] == true) {
-        ref
-            .read(questionaresProvider.notifier)
-            .answer(false, AnswerKey.haveFullThai);
+        Navigator.pushNamed(context, '/question3');
+      } else if (data['1'] == true) {
+        final data = ref.watch(BadgeChecklistsProvider).checklist;
+        list = data.entries.map((e) => checklist(e.key, e.value)).toList();
+        var result = list.any((element) => element.check == false);
+        if (result == true) {
+          ref
+              .read(questionaresProvider.notifier)
+              .answer(false, AnswerKey.haveFullThai);
+          Navigator.pushNamed(context, '/question3');
+        }
       }
     }
 
@@ -106,7 +114,6 @@ class _Question2PageState extends ConsumerState<Question2Page> {
       bottomNavigationBar: QuestionareBottomBar(
         onClickAction: () {
           updateQuestion();
-          Navigator.pushNamed(context, '/question3');
         },
       ),
       // This trailing comma makes auto-formatting nicer for build methods.

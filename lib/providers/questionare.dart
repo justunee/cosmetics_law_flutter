@@ -111,13 +111,13 @@ class QuestionareNotifier extends StateNotifier<Questionare> {
       case AnswerKey.isLabel:
         if (!answer) {
           modify("221", true);
-          modifySeller("321", true);
+          modifySeller("322", true);
         }
         break;
       case AnswerKey.fact:
         if (!answer) {
           modify("2221", true);
-          modifySeller("322", true);
+          modifySeller("323", true);
         }
         break;
       case AnswerKey.prohibitChem:
@@ -139,75 +139,60 @@ class QuestionareNotifier extends StateNotifier<Questionare> {
       case AnswerKey.haveThai:
         if (!answer) {
           modify("2222", true);
-          modifySeller("323", true);
+          modifySeller("324", true);
         }
         break;
       case AnswerKey.haveFullThai:
         if (!answer) {
           modify("2223", true);
-          modifySeller("323", true);
+          modifySeller("324", true);
         }
         break;
       case AnswerKey.foundId:
         if (!answer) {
-          modify("272", true);
-          modify("294", true);
-          modifySeller("272", true);
-          modifySeller("294", true);
+          modify("272294", true);
+          modifySeller("272294", true);
         }
         break;
       case AnswerKey.nameEqualId:
         if (!answer) {
-          modify("272", true);
-          modify("294", true);
-          modifySeller("272", true);
-          modifySeller("294", true);
+          modify("272294", true);
+          modifySeller("272294", true);
         }
         break;
       case AnswerKey.producerName:
         if (!answer) {
-          modify("272", true);
-          modify("291", true);
-          modifySeller("272", true);
-          modifySeller("291", true);
+          modify("272291", true);
+          modifySeller("272291", true);
         }
         break;
       case AnswerKey.producerName2:
         if (!answer) {
-          modify("272", true);
-          modify("291", true);
-          modifySeller("272", true);
-          modifySeller("291", true);
+          modify("272291", true);
+          modifySeller("272291", true);
         }
         break;
       case AnswerKey.paperInfo:
         if (!answer) {
-          modify("272", true);
-          modify("291", true);
-          modifySeller("272", true);
-          modifySeller("291", true);
+          modify("272291", true);
+          modifySeller("272291", true);
         }
         break;
       case AnswerKey.date1before:
         if (!answer) {
-          modify("275", true);
-          modify("61", true);
-          modifySeller("275", true);
-          modifySeller("61", true);
+          modify("27561", true);
+          modifySeller("27561", true);
         }
         break;
       case AnswerKey.date1after:
         if (!answer) {
-          modifySeller("275", true);
-          modifySeller("61", true);
+          modifySeller("27561", true);
         }
         break;
       case AnswerKey.date2after:
         if (!answer) {
-          modify("272", true);
-          modify("294", true);
-          modifySeller("272", true);
-          modifySeller("294", true);
+          modify("272294", true);
+          modifySeller("272294", true);
         }
         break;
 

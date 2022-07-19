@@ -28,7 +28,6 @@ class BadgeThaiChecklistsNotifier extends StateNotifier<BadgeThaiChecklists> {
       : super(const BadgeThaiChecklists(checklist: {
           "1": false,
           "2": false,
-          "3": false,
         }, completed: false));
 
   void modify(String key, bool value) {
@@ -36,7 +35,15 @@ class BadgeThaiChecklistsNotifier extends StateNotifier<BadgeThaiChecklists> {
   }
 
   void answer(String id, bool isChecked) {
-    modify(id, isChecked);
+    if (id == "1") {
+      modify("1", isChecked);
+      modify("2", false);
+    } else if (id == "2") {
+      modify("2", isChecked);
+      modify("1", false);
+    }
+    // modify(id, isChecked);
+    print(state.checklist);
   }
 }
 

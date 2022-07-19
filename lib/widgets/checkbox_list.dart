@@ -49,7 +49,9 @@ class _CheckboxBadgeState extends ConsumerState<CheckboxBadge> {
     dynamic data = ref.watch(BadgeChecklistsProvider).checklist;
 
     return Column(children: [
-      question_list_container(title: "รายการใดที่ไม่พบบนฉลาก"),
+      question_list_container(
+        title: "กรุณาเลือกรายการที่พบบนฉลาก",
+      ),
       Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -71,7 +73,6 @@ class _CheckboxBadgeState extends ConsumerState<CheckboxBadge> {
               ref
                   .read(BadgeChecklistsProvider.notifier)
                   .answer(badge["id"].toString(), badge["isChecked"]);
-
               // print(data.checklist['1']);
             },
           );
@@ -88,13 +89,25 @@ class CheckboxThaiBadge extends ConsumerStatefulWidget {
   ConsumerState createState() => _CheckboxThaiBadgeState();
 }
 
+class checklist {
+  String id;
+  bool check;
+  checklist(this.id, this.check);
+  @override
+  String toString() {
+    return '{ ${this.id}, ${this.check} }';
+  }
+}
+
 class _CheckboxThaiBadgeState extends ConsumerState<CheckboxThaiBadge> {
   // Generate a list of available hobbies here
   List<Map> thaiBadge = [
-    {"question": "แสดงภาษาไทยครบทุกรายการ", "isChecked": false, "id": 1},
-    {"question": "แสดงภาษาไทยไม่ครบทุกรายการ", "isChecked": false, "id": 2},
-    {"question": "ไม่แสดงภาษาไทย", "isChecked": false, "id": 3},
+    {"question": "แสดงภาษาไทย", "isChecked": false, "id": 1},
+    {"question": "ไม่แสดงภาษาไทย", "isChecked": false, "id": 2},
   ];
+  int test = 0;
+
+  var list = [];
 
   // String title = "";
 
@@ -115,15 +128,14 @@ class _CheckboxThaiBadgeState extends ConsumerState<CheckboxThaiBadge> {
     }
 
     return Column(children: [
-      question_list_container(
-          title: "รายการบนฉลากข้างต้นมีการแสดงภาษาไทยหรือไม่"),
+      question_list_container(title: "มีการแสดงภาษาไทยบนฉลากหรือไม่"),
       Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
             children: thaiBadge.map((badge) {
           return CheckboxListTile(
             dense: true,
-            value: badge["isChecked"],
+            value: test == badge["id"],
             title: Text(badge["question"]),
             checkboxShape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(5.0)),
@@ -133,9 +145,18 @@ class _CheckboxThaiBadgeState extends ConsumerState<CheckboxThaiBadge> {
               setState(() {
                 badge["isChecked"] = newValue;
               });
+              setState(() {
+                test = badge["id"];
+              });
               ref
                   .read(BadgeThaiChecklistsProvider.notifier)
                   .answer(badge["id"].toString(), badge["isChecked"]);
+
+              // final data = ref.watch(BadgeChecklistsProvider).checklist;
+              // list =
+              //     data.entries.map((e) => checklist(e.key, e.value)).toList();
+
+              // var result = list.any((element) => element.check == false);
             },
           );
         }).toList()),

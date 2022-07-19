@@ -92,12 +92,12 @@ class _Question3PageState extends ConsumerState<Question3Page> {
       ),
       bottomNavigationBar: QuestionareBottomBar(
         onClickAction: () {
-          if (Answer[0]["firstBox"] == false) {
-            Navigator.pushNamed(context, '/searchProd');
-          } else {
+          if (Answer[0]["firstBox"] == true) {
             ref
                 .read(questionaresProvider.notifier)
                 .answer(false, AnswerKey.fact);
+            Navigator.pushNamed(context, '/searchProd');
+          } else {
             Navigator.pushNamed(context, '/searchProd');
           }
         },
