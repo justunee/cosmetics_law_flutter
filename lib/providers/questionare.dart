@@ -122,18 +122,14 @@ class QuestionareNotifier extends StateNotifier<Questionare> {
         break;
       case AnswerKey.prohibitChem:
         if (!answer) {
-          modify("271", true);
-          modify("284", true);
-          modifySeller("271", true);
-          modifySeller("284", true);
+          modify("271284", true);
+          modifySeller("271284", true);
         }
         break;
       case AnswerKey.more500:
         if (!answer) {
-          modify("274", true);
-          modify("61", true);
-          modifySeller("274", true);
-          modifySeller("61", true);
+          modify("27461", true);
+          modifySeller("27461", true);
         }
         break;
       case AnswerKey.haveThai:
