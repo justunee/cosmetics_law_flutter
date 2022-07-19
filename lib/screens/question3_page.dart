@@ -1,3 +1,4 @@
+import 'package:cosmetics_law/providers/badgeChecklist.dart';
 import 'package:cosmetics_law/providers/questionare.dart';
 import 'package:cosmetics_law/widgets/bottom_bar.dart';
 import 'package:cosmetics_law/widgets/true_false.dart';
@@ -92,13 +93,25 @@ class _Question3PageState extends ConsumerState<Question3Page> {
       ),
       bottomNavigationBar: QuestionareBottomBar(
         onClickAction: () {
-          if (Answer[0]["firstBox"] == true) {
-            ref
-                .read(questionaresProvider.notifier)
-                .answer(false, AnswerKey.fact);
-            Navigator.pushNamed(context, '/searchProd');
+          final data = ref.watch(BadgeChecklistsProvider).checklist;
+          if (data['1'] == false && data['7'] == false) {
+            if (Answer[0]["firstBox"] == true) {
+              ref
+                  .read(questionaresProvider.notifier)
+                  .answer(false, AnswerKey.fact);
+              Navigator.pushNamed(context, '/safetyQuestion1');
+            } else {
+              Navigator.pushNamed(context, '/safetyQuestion1');
+            }
           } else {
-            Navigator.pushNamed(context, '/searchProd');
+            if (Answer[0]["firstBox"] == true) {
+              ref
+                  .read(questionaresProvider.notifier)
+                  .answer(false, AnswerKey.fact);
+              Navigator.pushNamed(context, '/searchProd');
+            } else {
+              Navigator.pushNamed(context, '/searchProd');
+            }
           }
         },
       ),

@@ -44,6 +44,7 @@ class BadgeChecklistsNotifier extends StateNotifier<BadgeChecklists> {
 
   void answer(String id, bool isChecked) {
     modify(id, isChecked);
+    print(state.checklist);
   }
 }
 
