@@ -61,11 +61,27 @@ class _Question12PageState extends ConsumerState<Question12Page> {
           ref
               .read(questionaresProvider.notifier)
               .answer(false, AnswerKey.date2after);
-          Navigator.pushNamed(context, '/safetyQuestion1');
+          if (checklist['7'] == true) {
+            ref
+                .read(questionaresProvider.notifier)
+                .answer(false, AnswerKey.producerName);
+            Navigator.pushNamed(context, '/safetyQuestion1');
+          } else {
+            ref
+                .read(questionaresProvider.notifier)
+                .answer(false, AnswerKey.date2NotShow);
+            Navigator.pushNamed(context, '/safetyQuestion1');
+          }
         } else {
-          ref
-              .read(questionaresProvider.notifier)
-              .answer(false, AnswerKey.date2NotShow);
+          if (checklist['7'] == true) {
+            ref
+                .read(questionaresProvider.notifier)
+                .answer(false, AnswerKey.producerName);
+            Navigator.pushNamed(context, '/safetyQuestion1');
+          } else
+            ref
+                .read(questionaresProvider.notifier)
+                .answer(false, AnswerKey.date2NotShow);
           Navigator.pushNamed(context, '/safetyQuestion1');
         }
 
