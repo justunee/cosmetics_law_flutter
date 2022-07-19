@@ -96,8 +96,8 @@ class _Safe_question6PageState extends ConsumerState<Safe_question6Page> {
             ref
                 .read(questionaresProvider.notifier)
                 .answer(false, AnswerKey.more500);
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                '/result', (Route<dynamic> route) => false);
           } else {
             Navigator.pushNamed(context, '/safetyQuestion7');
           }

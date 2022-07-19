@@ -95,8 +95,8 @@ class _Safe_question3PageState extends ConsumerState<Safe_question3Page> {
           if (Answer[0]["firstBox"] == true) {
             Navigator.pushNamed(context, '/safetyQuestion4');
           } else {
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                '/result', (Route<dynamic> route) => false);
           }
         },
       ),
