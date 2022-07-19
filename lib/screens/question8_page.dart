@@ -25,6 +25,17 @@ class Question8Page extends HookConsumerWidget {
     final PageClick = ref.watch(pageClickProvider);
     return Scaffold(
       backgroundColor: CustomMaterialColor(228, 147, 161).mdColor,
+      appBar: AppBar(
+        toolbarHeight: 100.00,
+        // Here we take the value from the TrueFlase object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: const Text('โหมดผลิตภัณฑ์',
+            style: TextStyle(
+              fontSize: 24.0,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            )),
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
